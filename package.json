@@ -1,0 +1,66 @@
+{
+  "name": "hammer-dressing",
+  "displayName": "HammerDressing",
+  "scripts": {
+    "test": "node ./out/test/runTests.js",
+    "pretest": "tsc -p ./",
+    "vscode:prepublish": "npm run package && npm run package-web",
+    "package": "webpack --mode production --config ./build/node-extension.webpack.config.js",
+    "compile": "webpack --config ./build/node-extension.webpack.config.js",
+    "watch": "webpack --watch --config ./build/node-extension.webpack.config.js",
+    "compile-web": "webpack --config ./build/web-extension.webpack.config.js",
+    "watch-web": "webpack --watch --config ./build/web-extension.webpack.config.js",
+    "package-web": "webpack --mode production --config ./build/web-extension.webpack.config.js",
+    "lint": "tslint -p ./"
+  },
+  "description": "",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.67.0"
+  },
+  "publisher": "TheVoidsteppers",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TheVoidsteppers/hammer-dressing.git"
+  },
+  "license": "MIT",
+  "keywords": [
+  ],
+  "categories": [
+  ],
+  "activationEvents": [
+    "*"
+  ],
+  "main": "./dist/extension.js",
+  "browser": "./dist/web/extension.js",
+  "preview": false,
+  "contributes": {
+    "menus": {
+    },
+    "commands": [
+    ],
+    "keybindings": [
+    ],
+    "configuration": {
+    }
+  },
+  "extensionDependencies": [
+  ],
+  "devDependencies": {
+    "@types/glob": "^7.1.3",
+    "@types/mocha": "^8.2.2",
+    "@types/node": "^12.12.0",
+    "@types/vscode": "^1.53.0",
+    "@types/relaxed-json": "^1.0.0",
+    "glob": "^7.1.6",
+    "mocha": "^8.3.2",
+    "tslint": "^6.1.3",
+    "typescript": "^4.2.3",
+    "vscode-test": "^1.5.2",
+    "ts-loader": "^8.1.0",
+    "webpack": "^5.30.0",
+    "webpack-cli": "^4.6.0"
+  },
+  "dependencies": {
+  }
+}
