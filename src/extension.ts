@@ -38,7 +38,7 @@ async function handleToggleSkipWorktree (filePaths: vscode.Uri[], isSkip: boolea
   const ext = vscode.extensions.getExtension<GitExtension>('vscode.git');
   await ext?.activate();
   const gitExtension = ext?.exports;
-  const git = gitExtension?.model?.git
+  const git = (gitExtension as any).model?.git
   const gitApi = gitExtension?.getAPI(1);
 
   const repositoryRoot = gitApi?.repositories[0]?.rootUri?.fsPath
@@ -62,7 +62,7 @@ async function handleNoSkipWorktree (treeItem: TreeItem): Promise<void> {
   const ext = vscode.extensions.getExtension<GitExtension>('vscode.git');
   await ext?.activate();
   const gitExtension = ext?.exports;
-  const git = gitExtension?.model.git
+  const git = (gitExtension as any).model.git
   const gitApi = gitExtension?.getAPI(1);
 
   const repositoryRoot = gitApi?.repositories[0]?.rootUri?.fsPath

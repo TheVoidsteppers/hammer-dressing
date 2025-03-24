@@ -22,7 +22,7 @@ export class SkipWorktreeProvider implements vscode.TreeDataProvider<TreeItem> {
   }
 
   get git() {
-    const git = this.gitExtension?.model?.git
+    const git = (this.gitExtension as any).model?.git
     return git
   }
 
