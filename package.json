@@ -24,10 +24,8 @@
     "url": "https://github.com/TheVoidsteppers/hammer-dressing.git"
   },
   "license": "MIT",
-  "keywords": [
-  ],
-  "categories": [
-  ],
+  "keywords": [],
+  "categories": [],
   "activationEvents": [
     "*"
   ],
@@ -82,8 +80,8 @@
         "command": "extension.HammerDressing.git.skip-worktree-refresh",
         "title": "refresh",
         "icon": {
-          "light": "resources/light/refresh.svg",
-          "dark": "resources/dark/refresh.svg"
+          "light": "./dist/assets/light/refresh.svg",
+          "dark": "./dist/assets/dark/refresh.svg"
         }
       },
       {
@@ -91,10 +89,8 @@
         "title": "不忽略该文件"
       }
     ],
-    "keybindings": [
-    ],
-    "configuration": {
-    }
+    "keybindings": [],
+    "configuration": {}
   },
   "extensionDependencies": [
     "vscode.git"
@@ -104,15 +100,14 @@
     "@types/mocha": "^8.2.2",
     "@types/node": "^12.12.0",
     "@types/vscode": "^1.53.0",
+    "copy-webpack-plugin": "^13.0.0",
     "glob": "^7.1.6",
     "mocha": "^8.3.2",
+    "ts-loader": "^8.1.0",
     "tslint": "^6.1.3",
     "typescript": "^4.2.3",
     "vscode-test": "^1.5.2",
-    "ts-loader": "^8.1.0",
     "webpack": "^5.30.0",
     "webpack-cli": "^4.6.0"
-  },
-  "dependencies": {
   }
 }

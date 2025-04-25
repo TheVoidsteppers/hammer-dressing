@@ -3,6 +3,7 @@
 'use strict';
 
 const path = require('path');
+const CopyPlugin = require('copy-webpack-plugin');
 
 /**@type {import('webpack').Configuration}*/
 const config = {
@@ -35,8 +36,19 @@ const config = {
             loader: 'ts-loader'
           }
         ]
-      }
+      },
+      {
+        test: /\.(svg)$/i,
+        type: "asset", // 一般会转换为 "asset/resource"
+      },
     ]
-  }
+  },
+  plugins: [
+    new CopyPlugin({
+      patterns: [
+        { from: 'src/assets', to: 'assets' },
+      ],
+    })
+  ]
 };
 module.exports = config;

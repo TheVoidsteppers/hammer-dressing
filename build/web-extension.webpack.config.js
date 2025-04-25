@@ -10,6 +10,7 @@
 /** @typedef {import('webpack').Configuration} WebpackConfig **/
 
 const path = require('path');
+const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = /** @type WebpackConfig */ {
 	context: path.dirname(__dirname),
@@ -25,22 +26,35 @@ module.exports = /** @type WebpackConfig */ {
 		}
 	},
 	module: {
-		rules: [{
-			test: /\.ts$/,
-			exclude: /node_modules/,
-			use: [{
-				// configure TypeScript loader:
-				// * enable sources maps for end-to-end source maps
-				loader: 'ts-loader',
-				options: {
-					compilerOptions: {
-						'sourceMap': true,
-						'declaration': false
+		rules: [
+			{
+				test: /\.ts$/,
+				exclude: /node_modules/,
+				use: [{
+					// configure TypeScript loader:
+					// * enable sources maps for end-to-end source maps
+					loader: 'ts-loader',
+					options: {
+						compilerOptions: {
+							'sourceMap': true,
+							'declaration': false
+						}
 					}
-				}
-			}]
-		}]
+				}]
+			},
+			{
+        test: /\.(svg)$/i,
+        type: "asset", // 一般会转换为 "asset/resource"
+      },
+		]
 	},
+	plugins: [
+		new CopyPlugin({
+			patterns: [
+				{ from: 'src/assets', to: 'assets' },
+			],
+		})
+	],
 	externals: {
 		'vscode': 'commonjs vscode', // ignored because it doesn't exist
 	},
